@@ -13,7 +13,7 @@ public:
         if(mp[it]==1)//iterating through the array and finding tha string kth unique string
         k--;
         if(k==0)
-        return it;returning the kth unique string
+        return it;//returning the kth unique string
      }
      return "";
         
