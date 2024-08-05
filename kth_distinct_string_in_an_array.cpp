@@ -10,7 +10,7 @@ public:
      }
      for(auto &it:arr)
      {
-        if(mp[it]==1)//iterating through the array and finding tha string kth unique string
+        if(mp[it]==1)//iterating through the array and finding the kth unique string
         k--;
         if(k==0)
         return it;//returning the kth unique string
