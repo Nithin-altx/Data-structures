@@ -1,4 +1,5 @@
 class Solution {
+//copying right half to left half
     public long copyhalf(long firsthalf,boolean isodd)
     {
         long res=firsthalf;
