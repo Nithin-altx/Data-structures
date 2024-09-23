@@ -1,3 +1,4 @@
+
 class Solution {
     //Tc=(2^n*n*n) in recursion
     //Tc=(n^3) in memorization
@@ -33,5 +34,31 @@ class Solution {
         }
         return solve(0,s,st,n);
         
+    }
+}
+//Dp_Approach tc=O(n^3)
+class Solution {
+    public int minExtraChar(String s, String[] dic) {
+        int dp[]=new int[51];
+         Set<String> st=new HashSet<>();
+        for(int i=0;i<dic.length;i++)
+        {
+            String k=dic[i];
+            st.add(k);
+        }
+        int n=s.length();
+        for(int i=n-1;i>=0;i--)
+        {
+            dp[i]=1+dp[i+1];
+            for(int j=i;j<n;j++)
+            {
+                String curr=s.substring(i,j+1);
+                if(st.contains(curr))
+                {
+                    dp[i]=Math.min(dp[i],dp[j+1]);
+                }
+            }
+        }
+        return dp[0];
     }
 }
