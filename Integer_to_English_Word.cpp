@@ -16,11 +16,11 @@ string solve(int num)
     {
         return belowhundred[num/10]+((num%10!=0)?" "+solve(num%10):"");
     }
-    if(num<1000)
+    if(num<1000)//876
     {
         return solve(num/100)+" Hundred"+((num%100!=0)?" "+solve(num%100):"");
     }
-     if(num<1000000)
+     if(num<1000000)//8562
     {
         return solve(num/1000)+" Thousand"+((num%1000!=0)?" "+solve(num%1000):"");
     }
