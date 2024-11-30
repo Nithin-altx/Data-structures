@@ -1,5 +1,6 @@
 //Using stack
 //Tc=O(V+E)
+//Approach-1 (DFS Using Stack) - Hierholzer's Algorithm to find Euler Path
 class Solution {
     public int[][] validArrangement(int[][] pairs) {
         Stack<Integer> st=new Stack<>();
