@@ -1,7 +1,7 @@
 class Solution {
     public int[] getFinalState(int[] nums, int k, int multiplier) {
         //Tc=O(NlogN)
-        //Sc=O(N)
+        //Sc=O(1)
        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
             if (a[0] != b[0]) {
                 return Integer.compare(a[0], b[0]); // Compare keys (primary comparison)
@@ -13,23 +13,23 @@ class Solution {
         {
             pq.offer(new int[]{nums[i],i});
         }
-        int res[]=new int[nums.length];
+        // int res[]=new int[nums.length];
         while(!pq.isEmpty()&&k>0)
         {
             int e[]=pq.poll();
             int ele=e[0];
             int idx=e[1];
-            ele=ele*multiplier;
-            pq.offer(new int[]{ele,idx});
+            nums[idx]=ele*multiplier;
+            pq.offer(new int[]{nums[idx],idx});
             k--;
         }
-        while(!pq.isEmpty())
-        {
-            int r[]=pq.poll();
-            int num=r[0];
-            int id=r[1];
-            res[id]=num;
-        }
-        return res;
+        // while(!pq.isEmpty())
+        // {
+        //     int r[]=pq.poll();
+        //     int num=r[0];
+        //     int id=r[1];
+        //     res[id]=num;
+        // }
+        return nums;
     }
 }
