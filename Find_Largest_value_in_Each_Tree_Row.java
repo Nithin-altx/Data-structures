@@ -70,3 +70,35 @@ class Solution {
     }
 }
 
+//Using Dfs Iterative
+class Solution {
+    public List<Integer> largestValues(TreeNode root) {
+        Stack<Pair<TreeNode,Integer>> st=new Stack<>();
+        List<Integer> res =new ArrayList<>();
+        if(root==null)
+        return res;
+        st.push(new Pair<>(root,0));
+        while(!st.isEmpty())
+        {
+            Pair<TreeNode,Integer> pair=st.pop();
+            TreeNode node=pair.getKey();
+            int depth=pair.getValue();
+            if(depth==res.size())
+            {
+                res.add(node.val);
+            }
+            else{
+                res.set(depth,Math.max(node.val,res.get(depth)));
+            }
+            if(node.left!=null)
+            {
+                st.push(new Pair<>(node.left,depth+1));
+            }
+            if(node.right!=null)
+            {
+                st.push(new Pair<>(node.right,depth+1));
+            }
+        }
+        return res;
+    }
+}
