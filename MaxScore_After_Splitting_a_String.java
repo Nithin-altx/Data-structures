@@ -39,3 +39,36 @@ class Solution {
        return maxscore;
     }
 }
+//prefix sum
+class Solution {
+    public int maxScore(String s) {
+        //Tc=O(N)
+        //SC=O(N)
+        int leftscore[]=new int[s.length()];
+        int rightscore[]=new int[s.length()];
+        int ls=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='0')
+            {
+                ls++;
+            }
+            leftscore[i]=ls;
+        }
+        int rs=0;
+        for(int j=s.length()-1;j>0;j--)
+        {
+            if(s.charAt(j)=='1')
+            {
+                rs++;
+            }
+            rightscore[j]=rs;
+        }
+        int maxscore=Integer.MIN_VALUE;
+        for(int k=0;k<s.length()-1;k++)
+        {
+            maxscore=Math.max(leftscore[k]+rightscore[k+1],maxscore);
+        }
+        return maxscore;
+    }
+}
