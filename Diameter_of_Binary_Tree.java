@@ -1,5 +1,5 @@
 //Tc=O(N)
-//Sc=O(1)
+//Sc=O(H)
 class Solution {
     int maxd=0;
     int solve(Node root)
