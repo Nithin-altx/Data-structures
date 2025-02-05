@@ -34,3 +34,33 @@ class Solution {
         
     }
 }
+//Using Recursion
+class Solution {
+    // Function to convert a binary tree into its mirror tree.
+    void mirror(Node node) {
+        // Your code here
+        if(node.left==null&&node.right==null)
+        return;
+        
+        if(node.left!=null&&node.right!=null)
+        {
+            Node temp=node.left;
+            node.left=node.right;
+            node.right=temp;
+            mirror(node.left);
+            mirror(node.right);
+        }
+        else if(node.left!=null&&node.right==null)
+        {
+            node.right=node.left;
+            node.left=null;
+            mirror(node.right);
+        }
+        else if(node.right!=null&&node.left==null)
+        {
+            node.left=node.right;
+            node.right=null;
+            mirror(node.left);
+        }
+    }
+}
