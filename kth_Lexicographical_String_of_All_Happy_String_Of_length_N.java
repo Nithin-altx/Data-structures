@@ -1,4 +1,6 @@
 class Solution {
+//Tc=O(2^N)
+//Sc=O(N)
     void solve(int n, List<String> ls,StringBuilder res)
     {
         if(res.length()==n)
