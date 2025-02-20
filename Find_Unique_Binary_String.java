@@ -38,3 +38,19 @@ class Solution {
          
     }
 }
+//Optimal 
+//Tc=O(N)
+//sc=O(1)
+class Solution {
+    public String findDifferentBinaryString(String[] nums) {
+        String res="";
+        int i=0;
+        for(String x:nums)
+        {
+            char ch=x.charAt(i);
+            res+=ch=='0'?'1':'0';
+            i++;
+        }
+        return res;
+    }
+}
