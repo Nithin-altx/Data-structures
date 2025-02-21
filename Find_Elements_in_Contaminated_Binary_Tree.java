@@ -44,3 +44,38 @@ class FindElements {
         
     }
 }
+//Using BFS
+class FindElements {
+    Set<Integer> st;
+void dfs(TreeNode root)
+{
+    if(root==null)
+    return;
+    st.add(root.val);
+    if(root.left!=null)
+    {
+        root.left.val=2*root.val+1;
+        st.add(root.left.val);
+        dfs(root.left);
+    }
+    if(root.right!=null)
+    {
+        root.right.val=2*root.val+2;
+        st.add(root.right.val);
+        dfs(root.right);
+    }
+}
+    public FindElements(TreeNode root) {
+        st=new HashSet<>();
+        root.val=0;
+        dfs(root);
+    }
+    
+    public boolean find(int target) {
+        if(st.contains(target))
+        return true;
+        else
+        return false;
+        
+    }
+}
